@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import InputComponent, { TelInputComponent } from "../InputComponent";
 import { useEffect, useRef, useState } from "react";
-import { useGetCountries, useGetFlags } from "../../mock";
+import { useGetCountries } from "../../mock";
 
 export const Step1 = () => {
   const { setValue } = useFormContext();

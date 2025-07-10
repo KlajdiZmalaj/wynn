@@ -43,7 +43,7 @@ type TelInputComponentProps = {
   handleChange: (phoneNumber: string) => void;
 };
 export const TelInputComponent = ({ handleChange }: TelInputComponentProps) => {
-  const { data: flags, loading: flagsLoading } = useGetFlags();
+  const { data: flags } = useGetFlags();
 
   const [inputValue, setInputValue] = useState({ prefix: "", carrier: "068", number: "" });
 
