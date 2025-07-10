@@ -51,11 +51,7 @@ export const Step1 = () => {
         />
       </div>
       <div className="w-100">
-        <TelInputComponent
-          handleChange={(phoneNr) => {
-            setValue("phoneNumber", phoneNr, { shouldValidate: true, shouldDirty: true });
-          }}
-        />
+        <TelInputComponent />
       </div>
       <div className="w-100 terms">
         <input id="terms" type="checkbox" />{" "}
@@ -156,15 +152,13 @@ export const Step3 = () => {
       inputRefs[index - 1].current?.focus();
     }
   };
-
+  const fullNumber = formData.phoneNumber?.prefix + formData.phoneNumber?.carrier + formData.phoneNumber?.number;
   return (
     <div className="step2Box">
       <p>OTP Verification</p>
       <div className="step2Container">
         <p className="subtitle1">Please check your {otpMode}</p>
-        <p className="desc1">
-          We have sent a code to {otpMode === "Email" ? formData.email : formData.phoneNumber || ""}
-        </p>
+        <p className="desc1">We have sent a code to {otpMode === "Email" ? formData.email : fullNumber || ""}</p>
 
         <div className="code-input">
           {code.map((digit, index) => (

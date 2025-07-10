@@ -7,7 +7,7 @@ export default function Header() {
       <img src={Logo} />
       <nav className="lists">
         {headerList.map((el) => (
-          <div>{el}</div>
+          <div key={el}>{el}</div>
         ))}
       </nav>
     </header>

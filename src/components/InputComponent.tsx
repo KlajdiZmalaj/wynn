@@ -45,24 +45,20 @@ const FormInput = ({ label, name, required, options, loading, ...rest }: Props) 
   );
 };
 
-type TelInputComponentProps = {
-  handleChange: (phoneNumber: string) => void;
-};
-export const TelInputComponent = ({ handleChange }: TelInputComponentProps) => {
+export const TelInputComponent = () => {
   const { data: flags } = useGetFlags();
-  const { watch } = useFormContext();
-  const phoneNumberFormValue = watch("phoneNumber");
-  const [inputValue, setInputValue] = useState(phoneNumberFormValue || { prefix: "", carrier: "068", number: "" });
+  const { watch, setValue } = useFormContext();
+  const phoneNumberFormValue = watch("phoneNumber") || { prefix: "+355", carrier: "068", number: "" };
+  console.log("phoneNumberFormValue", phoneNumberFormValue);
 
+  const handleChange = (phoneNr: { prefix: string; carrier: string; number: string }) => {
+    setValue("phoneNumber", phoneNr, { shouldValidate: true, shouldDirty: true });
+  };
   useEffect(() => {
-    if (!inputValue.prefix && flags?.length) {
-      setInputValue({ ...inputValue, prefix: flags[0].prefix });
+    if (!phoneNumberFormValue.prefix && flags?.length) {
+      setValue("phoneNumber", { ...phoneNumberFormValue, prefix: flags[0].prefix });
     }
-  }, [flags, inputValue]);
-
-  useEffect(() => {
-    handleChange(inputValue);
-  }, [inputValue]);
+  }, [flags, phoneNumberFormValue]);
 
   return (
     <div className="telComponent">
@@ -70,25 +66,25 @@ export const TelInputComponent = ({ handleChange }: TelInputComponentProps) => {
         key={flags?.length}
         className="countries"
         placeholder={""}
-        value={inputValue.prefix}
+        value={phoneNumberFormValue.prefix}
         options={(flags || []).map((flag) => ({ label: flag.flag, value: flag.prefix }))}
-        onChange={(op) => setInputValue({ ...inputValue, prefix: op.value })}
+        onChange={(op) => handleChange({ ...phoneNumberFormValue, prefix: op.value })}
       />
-      <span style={{ marginRight: "5px" }}>{inputValue.prefix}</span>
+      <span style={{ marginRight: "5px" }}>{phoneNumberFormValue.prefix}</span>
       (
       <input
         id="tel1"
         type="text"
-        value={inputValue.carrier}
-        onChange={(e) => setInputValue({ ...inputValue, carrier: e.target.value })}
+        value={phoneNumberFormValue.carrier}
+        onChange={(e) => handleChange({ ...phoneNumberFormValue, carrier: e.target.value })}
         className="Inputcarrier"
       />
       ) -
       <input
         id="tel2"
         type="text"
-        value={inputValue.number}
-        onChange={(e) => setInputValue({ ...inputValue, number: e.target.value })}
+        value={phoneNumberFormValue.number}
+        onChange={(e) => handleChange({ ...phoneNumberFormValue, number: e.target.value })}
         className="Inputnumber"
       />
     </div>
