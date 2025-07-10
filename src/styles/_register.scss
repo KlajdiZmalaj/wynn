@@ -1,0 +1,274 @@
+.registerContainer {
+  width: 100%;
+}
+.register {
+  width: 100%;
+  max-width: 630px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    h2 {
+      font-weight: 500;
+      font-size: 37px;
+      font-family: "Libre Caslon Text", serif;
+      color: #1d1f22;
+    }
+    > div {
+      display: flex;
+      font-size: 24px;
+      font-weight: 500;
+      font-family: "Libre Caslon Text", serif;
+      color: #1d1f22;
+    }
+  }
+  form {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 24px;
+    .button1,
+    .button2 {
+      background: #006f62;
+      width: 217px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #fff;
+      outline: none;
+      border: 0;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .button1 {
+      background-color: transparent;
+      border: 1px solid #006f62;
+      border-radius: 4px;
+      color: #006f62;
+    }
+  }
+  .subtitle {
+    margin-top: 30px;
+    font-size: 15.5px;
+    font-family: "Montserrat";
+    color: #000;
+  }
+  .grouptitle {
+    font-size: 22px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #1d1f22;
+    margin-top: 24px;
+    font-weight: 500;
+    font-family: "Libre Caslon Text", serif;
+    color: #1d1f22;
+  }
+  .buttonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    > div:last-child {
+      justify-content: flex-end;
+    }
+  }
+  .w-100 {
+    width: 100%;
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+  }
+  .w-50 {
+    width: 50%;
+    margin-top: 24px;
+  }
+  .terms {
+    font-size: 16px;
+  }
+  .termsLabel,
+  .link {
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: #000;
+    cursor: pointer;
+  }
+  .link {
+    color: #5a3a27;
+  }
+  .form-input {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    gap: 8px;
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      font-family: "Libre Caslon Text", serif;
+      color: #1d1f22;
+    }
+    .Dropdown-arrow {
+      top: 50%;
+      transform: translateX(-50%);
+    }
+    input,
+    select,
+    .Dropdown-control {
+      border: 1.5px solid #e8e9e9;
+      background-color: #fff;
+      height: 60px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      outline: none;
+      &::placeholder,
+      .Dropdown-placeholder {
+        color: #999;
+        font-weight: 500;
+        font-size: 16px;
+        font-family: "Montserrat";
+      }
+
+      &:invalid {
+        border-color: #ff0000;
+      }
+    }
+    .Dropdown-option {
+      color: #000000;
+      font-weight: 500;
+      font-size: 16px;
+      font-family: "Montserrat";
+    }
+    &.error {
+      input,
+      select,
+      .Dropdown-control {
+        border-color: rgb(188, 34, 34);
+        &::placeholder {
+          color: rgb(198, 108, 108);
+        }
+      }
+    }
+  }
+  .telComponent {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1.5px solid #e8e9e9;
+    background-color: #fff;
+    height: 60px;
+    color: #999;
+
+    .Dropdown-control,
+    input {
+      padding: 0;
+      border: 0;
+      outline: none;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    input:nth-of-type(1) {
+      width: 40px;
+    }
+    #tel2 {
+      border-bottom: 1px solid #999;
+      text-align: left;
+      padding-left: 10px;
+      width: 100px;
+    }
+    .Dropdown-control {
+      width: 80px;
+      font-size: 28px;
+      flex-shrink: 0;
+      .Dropdown-arrow {
+        top: 45%;
+      }
+    }
+  }
+}
+
+//step2
+.step2Box {
+  width: 100%;
+  margin-top: 40px;
+  & > p {
+    font-size: 22px;
+    font-weight: 500;
+    font-family: "Libre Caslon Text", serif;
+    color: #1d1f22;
+    border-bottom: 1px solid #1d1f22;
+    width: 200px;
+  }
+}
+.step3Box {
+  width: 100%;
+  margin-top: 40px;
+}
+.step2Container {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  grid-auto-flow: 32px;
+  margin-top: 30px;
+}
+.subtitle1 {
+  font-weight: 500;
+  font-size: 28px;
+  font-family: "Libre Caslon Text", serif;
+  color: #101828;
+}
+.desc1,
+.labelCheckbox {
+  margin-top: 16px;
+  color: #667085;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Montserrat";
+}
+.labelCheckbox {
+  color: #000;
+  font-weight: 500;
+  margin-top: 0px;
+}
+.checkboxContainer,
+.checkbox {
+  display: flex;
+  gap: 10px;
+}
+.checkboxContainer {
+  margin-top: 40px;
+}
+
+//step3
+
+.code-input {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.code-input input {
+  width: 50px;
+  height: 60px;
+  margin: 0 5px;
+  text-align: center;
+  font-size: 24px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

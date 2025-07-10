@@ -1,0 +1,20 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 24px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.lists {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  & > div {
+    text-transform: uppercase;
+  }
+}
