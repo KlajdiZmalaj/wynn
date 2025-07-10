@@ -8,7 +8,7 @@ This project is a task submission for WYNN. It features a fully functional **reg
 - **TypeScript**
 - **React Hook Form** – for form state management and validation
 - **SCSS** – for styling
-- **Mock API** – using mock data to simulate backend integration
+- **Mock API** – using mock data to simulate backend integration (686eea1b91e85fac429f4c1c.mockapi.io)
 - **Testing** - Testing-library/react + Vitest
 
 ## 📝 Features
@@ -46,7 +46,7 @@ docker run -d -p 5173:80 wynn-registration-form
 OR
 
 ```bash
-URL
+URL : https://wynn-three.vercel.app
 ```
 
 ### 🔧 Run tests
