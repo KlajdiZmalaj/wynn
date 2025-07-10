@@ -19,9 +19,10 @@ type SelectProps = BaseProps & SelectHTMLAttributes<HTMLSelectElement>;
 type Props = InputProps | SelectProps;
 
 const FormInput = ({ label, name, required, options, loading, ...rest }: Props) => {
-  const { register, setValue, formState } = useFormContext();
+  const { register, setValue, formState, watch } = useFormContext();
   const { errors } = formState;
   const isSelect = Array.isArray(options);
+  const dropDownFormValue = watch(name);
   return (
     <div className={`form-input ${errors[name] ? "error" : ""}`}>
       {label && (
@@ -31,7 +32,12 @@ const FormInput = ({ label, name, required, options, loading, ...rest }: Props) 
       )}
 
       {isSelect ? (
-        <Dropdown options={options} onChange={(value) => setValue(name, value)} placeholder="Select an option" />
+        <Dropdown
+          value={dropDownFormValue}
+          options={options}
+          onChange={(value) => setValue(name, value)}
+          placeholder="Select an option"
+        />
       ) : (
         <input id={name} {...(rest as InputProps)} {...register(name, { required, ...rest.validation })} />
       )}
@@ -44,8 +50,9 @@ type TelInputComponentProps = {
 };
 export const TelInputComponent = ({ handleChange }: TelInputComponentProps) => {
   const { data: flags } = useGetFlags();
-
-  const [inputValue, setInputValue] = useState({ prefix: "", carrier: "068", number: "" });
+  const { watch } = useFormContext();
+  const phoneNumberFormValue = watch("phoneNumber");
+  const [inputValue, setInputValue] = useState(phoneNumberFormValue || { prefix: "", carrier: "068", number: "" });
 
   useEffect(() => {
     if (!inputValue.prefix && flags?.length) {
@@ -54,12 +61,13 @@ export const TelInputComponent = ({ handleChange }: TelInputComponentProps) => {
   }, [flags, inputValue]);
 
   useEffect(() => {
-    handleChange(`${inputValue.prefix}${inputValue.carrier}${inputValue.number}`);
+    handleChange(inputValue);
   }, [inputValue]);
 
   return (
     <div className="telComponent">
       <Dropdown
+        key={flags?.length}
         className="countries"
         placeholder={""}
         value={inputValue.prefix}
