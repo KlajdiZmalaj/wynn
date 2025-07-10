@@ -21,6 +21,7 @@ This project is a task submission for WYNN. It features a fully functional **reg
 
 ## 📂 Project Structure
 
+```bash
 src/
 ├── tests/ # Test files (Register.spec 4 tasks)
 ├── components/ # Reusable UI components
@@ -28,6 +29,7 @@ src/
 ├── mock/ # Mock API data and utilities
 ├── styles/ # SCSS files
 └── main.tsx # main entry point
+```
 
 ### 🔧 Start project
 
